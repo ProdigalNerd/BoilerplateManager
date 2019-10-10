@@ -1,21 +1,21 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
 const inquirer = require('inquirer');
 const download = require('download-git-repo');
 
-const boilerplates = {
-  "react-boilerplate": {
-    githubUser: 'ProdigalNerd',
-    githubRepo: 'react-boilerplate'
-  },
-};
+const bpData = fs.readFileSync('boilerplates.json');
+const boilerplates = JSON.parse(bpData);
+
+const choices = Object.keys(boilerplates);
+choices.push('none');
 
 const questions = [
   {
     name: 'templates',
     type: 'list',
     message: 'What boilerplate would you like to instantiate?',
-    choices: Object.keys(boilerplates),
+    choices: choices,
   }
 ];
 
@@ -29,5 +29,6 @@ function installBoilerplate(choice) {
 
 inquirer.prompt(questions)
   .then(answers => {
+    if (answers['templates'] === 'none') return;
     installBoilerplate(answers['templates']);
   });
