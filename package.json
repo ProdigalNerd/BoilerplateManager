@@ -1,0 +1,26 @@
+{
+  "name": "boilerplategenerator",
+  "version": "1.0.0",
+  "description": "A utility that will fetch a publicly hosted boilerplate and install it into the current directory.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "bpgenerator": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProdigalNerd/BoilerplateGenerator.git"
+  },
+  "author": "Tyler Wilson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ProdigalNerd/BoilerplateGenerator/issues"
+  },
+  "homepage": "https://github.com/ProdigalNerd/BoilerplateGenerator#readme",
+  "dependencies": {
+    "download-git-repo": "^2.0.0",
+    "inquirer": "^7.0.0"
+  }
+}
