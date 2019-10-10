@@ -1,34 +1,14 @@
 #!/usr/bin/env node
 
-const inquirer = require('inquirer');
-const fs = require('fs');
-const download = require('download-git-repo');
+// Grab provided args.
 
-const boilerplates = {
-  "react-boilerplate": {
-    githubUser: 'ProdigalNerd',
-    githubRepo: 'react-boilerplate'
-  },
-};
+const [,, ...args] = process.argv;
 
-const questions = [
-  {
-    name: 'templates',
-    type: 'list',
-    message: 'What boilerplate would you like to instantiate?',
-    choices: Object.keys(boilerplates),
-  }
-];
+console.log(args);
 
-function installBoilerplate(choice) {
-  const boilerplate = boilerplates[choice];
-
-  download(`${boilerplate.githubUser}/${boilerplate.githubRepo}`, './', (err) => {
-    console.error(err);
-  });
+if (args[0] === 'init') {
+  require('./initBoilerplate.js');
 }
-
-inquirer.prompt(questions)
-  .then(answers => {
-    installBoilerplate(answers['templates']);
-  });
+else if (args[0] === 'add') {
+  require('./addBoilerplate.js');
+}
