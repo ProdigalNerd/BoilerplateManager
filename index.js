@@ -4,11 +4,14 @@
 
 const [,, ...args] = process.argv;
 
-console.log(args);
+const method = args[0];
 
-if (args[0] === 'init') {
+if (method === 'init') {
   require('./initBoilerplate.js');
 }
-else if (args[0] === 'add') {
+else if (method === 'add') {
   require('./addBoilerplate.js');
+}
+else if (method === 'clear') {
+  require('./clearData.js');
 }
