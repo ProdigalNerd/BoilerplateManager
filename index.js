@@ -15,3 +15,6 @@ else if (method === 'add') {
 else if (method === 'clear') {
   require('./clearData.js');
 }
+else if (method === 'edit') {
+  require('./editEntry.js');
+}
