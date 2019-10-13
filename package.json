@@ -1,5 +1,5 @@
 {
-  "name": "boilerplategenerator",
+  "name": "boilerplate-manager",
   "version": "1.0.9",
   "description": "A utility that will fetch a publicly hosted boilerplate and install it into the current directory.",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "test": "jest"
   },
   "bin": {
-    "bpgenerator": "./index.js"
+    "bpmanager": "./index.js"
   },
   "repository": {
     "type": "git",
