@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 
-const bpData = fs.readFileSync('boilerplates.json');
+const bpData = fs.readFileSync(path.join(__dirname, 'boilerplates.json'));
 const boilerplates = JSON.parse(bpData);
 
 const choices = Object.keys(boilerplates);
@@ -66,6 +67,6 @@ inquirer.prompt({
           'githubRepo': answers['updateRepo'] !== '' ? answers['updateRepo'] : boilerplate['githubRepo']
         };
 
-        fs.writeFileSync('boilerplates.json', JSON.stringify(boilerplates));
+        fs.writeFileSync(path.join(__dirname, 'boilerplates.json'), JSON.stringify(boilerplates));
       });
   });

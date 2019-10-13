@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 
 const questions = [
@@ -12,7 +13,7 @@ const questions = [
 ];
 
 function clearBoilerplateList() {
-  fs.writeFileSync('boilerplates.json', JSON.stringify({}));
+  fs.writeFileSync(path.join(__dirname, 'boilerplates.json'), JSON.stringify({}));
 }
 
 inquirer.prompt(questions)

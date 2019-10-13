@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 const download = require('download-git-repo');
 
-const bpData = fs.readFileSync('boilerplates.json');
+const bpData = fs.readFileSync(path.join(__dirname, 'boilerplates.json'));
 const boilerplates = JSON.parse(bpData);
 
 const choices = Object.keys(boilerplates);

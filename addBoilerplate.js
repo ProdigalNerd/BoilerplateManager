@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
+const path = require('path');
 const inquirer = require('inquirer');
 
-const rawData = fs.readFileSync('boilerplates.json')
+const rawData = fs.readFileSync(path.join(__dirname, 'boilerplates.json'))
 
 let boilerplates = JSON.parse(rawData);
 
@@ -43,7 +44,7 @@ function writeNewBoilerplateToFile(answers) {
     'githubRepo': answers['githubRepo']
   };
 
-  fs.writeFileSync('boilerplates.json', JSON.stringify(boilerplates));
+  fs.writeFileSync(path.join(__dirname, 'boilerplates.json'), JSON.stringify(boilerplates));
 }
 
 inquirer.prompt(questions)
