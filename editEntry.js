@@ -26,6 +26,10 @@ inquirer.prompt({
         type: 'input',
         message: `New boilerplate name (${answers['boilerplate']})`,
         validate: (input) => {
+          if (input === '') {
+            return true;
+          }
+
           const nameExists = !!boilerplates[input];
     
           if (nameExists) {
@@ -52,21 +56,23 @@ inquirer.prompt({
 
     inquirer.prompt(questions)
       .then(answers => {
-        let newName = "";          
+        if (answers['updateName'] !== 'none') {
+          let newName = "";          
 
-        if (answers['updateName'] !== '') {
-          delete boilerplates[bpName];
-          newName = answers['updateName'];
+          if (answers['updateName'] !== '') {
+            delete boilerplates[bpName];
+            newName = answers['updateName'];
+          }
+          else {
+            newName = bpName;
+          }
+
+          boilerplates[newName] = {
+            'githubUser': answers['updateUser'] !== '' ? answers['updateUser'] : boilerplate['githubUser'],
+            'githubRepo': answers['updateRepo'] !== '' ? answers['updateRepo'] : boilerplate['githubRepo']
+          };
+
+          fs.writeFileSync(path.join(__dirname, 'boilerplates.json'), JSON.stringify(boilerplates));
         }
-        else {
-          newName = bpName;
-        }
-
-        boilerplates[newName] = {
-          'githubUser': answers['updateUser'] !== '' ? answers['updateUser'] : boilerplate['githubUser'],
-          'githubRepo': answers['updateRepo'] !== '' ? answers['updateRepo'] : boilerplate['githubRepo']
-        };
-
-        fs.writeFileSync(path.join(__dirname, 'boilerplates.json'), JSON.stringify(boilerplates));
       });
   });

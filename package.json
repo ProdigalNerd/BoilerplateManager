@@ -1,16 +1,13 @@
 {
   "name": "boilerplategenerator",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "A utility that will fetch a publicly hosted boilerplate and install it into the current directory.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
   "bin": {
-    "bpgenerator init": "./index.js",
-    "bpgenerator add": "./addBoilerplate.js",
-    "bpgenerator clear": "./clearData.js",
-    "bpgenerator edit": "./editEntry.js"
+    "bpgenerator": "./index.js"
   },
   "repository": {
     "type": "git",

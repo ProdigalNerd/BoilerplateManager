@@ -6,15 +6,20 @@ const [,, ...args] = process.argv;
 
 const method = args[0];
 
-if (method === 'init') {
-  require('./initBoilerplate.js');
-}
-else if (method === 'add') {
-  require('./addBoilerplate.js');
-}
-else if (method === 'clear') {
-  require('./clearData.js');
-}
-else if (method === 'edit') {
-  require('./editEntry.js');
+switch(method) {
+  case 'init':
+    require('./initBoilerplate.js');
+    break;
+  case 'add':
+    require('./addBoilerplate.js');
+    break;
+  case 'clear':
+    require('./clearData.js');
+    break;
+  case 'edit':
+    require('./editEntry.js');
+    break;
+  case 'delete':
+    require('./deleteEntry.js');
+    break;
 }
