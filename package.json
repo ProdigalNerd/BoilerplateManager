@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-manager",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A utility that will fetch a publicly hosted boilerplate and install it into the current directory.",
   "main": "index.js",
   "scripts": {
