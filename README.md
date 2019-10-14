@@ -28,3 +28,7 @@ This will bring up a list of your saved boilerplates. Selecting one will remove 
 `bpmanager clear`
 
 This will remove all items from the list and will prompt before executing the action.
+
+# Roadmap
+
+- Check existing files in working directory and notify if a file will be overwritten when downloading new boilerplate.
