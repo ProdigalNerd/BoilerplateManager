@@ -6,6 +6,8 @@ const [,, ...args] = process.argv;
 
 const method = args[0];
 
+require('./checkForFiles.js');
+
 switch(method) {
   case 'init':
     require('./initBoilerplate.js');
